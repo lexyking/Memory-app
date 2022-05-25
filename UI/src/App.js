@@ -1,11 +1,12 @@
 import { Container, AppBar, Typography, Grow, Grid } from '@mui/material'
+import image from './media/memories.png'
 
 const App = () => {
   return (
     <Container maxWidth='lg'>
       <AppBar position='static' color='inherit'>
         <Typography variant='h2' align='center'>Memories</Typography>
-        <img height='60' src="" alt="memories"/>
+        <img height='60' src={image} alt="memories"/>
       </AppBar>
     </Container>
   )
