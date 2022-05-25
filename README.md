@@ -18,10 +18,11 @@ API:
 
 Client:
 
-- React
+- React 18
 - Moment
 - Axios
 - Redux and Redux thunk
+- Material UI
 
 API:
 
