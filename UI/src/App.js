@@ -1,4 +1,7 @@
+import { useEffect, useState } from 'react'
+import { getPosts } from './actions/posts'
 import { Container, AppBar, Typography, Grow, Grid } from '@mui/material'
+import { useDispatch } from 'react-redux'
 import Form from './components/form/form'
 import Posts from './components/posts/posts'
 import image from './media/memories.png'
@@ -6,6 +9,14 @@ import useStyles from './styles'
 
 const App = () => {
   const classes = useStyles()
+  const dispatch = useDispatch()
+  const [posts, setPosts] = []
+
+  useEffect(() => {
+    const allPosts = dispatch(getPosts())
+    // setPosts(allPosts)
+  }, [dispatch])
+
   return (
     <Container maxWidth='lg'>
       <AppBar className={classes.appBar} position='static' color='inherit'>
