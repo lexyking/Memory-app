@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import { getPosts } from './actions/posts'
 import { Container, AppBar, Typography, Grow, Grid } from '@mui/material'
 import { useDispatch } from 'react-redux'
@@ -10,10 +10,9 @@ import useStyles from './styles'
 const App = () => {
   const classes = useStyles()
   const dispatch = useDispatch()
-  const [posts, setPosts] = []
 
   useEffect(() => {
-    const allPosts = dispatch(getPosts())
+    dispatch(getPosts())
     // setPosts(allPosts)
   }, [dispatch])
 
