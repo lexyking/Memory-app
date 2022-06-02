@@ -7,6 +7,7 @@ import Form from './components/form/form'
 import Posts from './components/posts/posts'
 import image from './media/memories.png'
 import useStyles from './styles'
+import QRCode from './components/qrcode/qrcode'
 
 const App = () => {
   const classes = useStyles()
@@ -20,7 +21,6 @@ const App = () => {
 
   return (
     <ThemeProvider theme={theme}>
-
       <Container maxWidth='lg'>
         <AppBar className={classes.appBar} position='static' color='inherit'>
           <Typography className={classes.heading} variant='h4' align='center'>Memories</Typography>
@@ -39,6 +39,9 @@ const App = () => {
             </Grid>
           </Container>
         </Grow>
+          <Container>
+            <QRCode />
+          </Container>
       </Container>
     </ThemeProvider>
   )
