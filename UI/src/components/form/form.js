@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { Paper, TextField, Button, Typography } from '@mui/material'
 import FileBAse from 'react-file-base64'
-// import useStyles from './styles'
+import useStyles from './styles'
 
 const Form = () => {
   const [postData, setPostData] = useState({
@@ -11,7 +11,7 @@ const Form = () => {
     tags: '',
     selectedFile: ''
   })
-  // const classes = useStyles()
+  const classes = useStyles()
   const handleSubmit = () => {
     console.log('submited')
   }
