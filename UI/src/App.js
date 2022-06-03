@@ -7,7 +7,7 @@ import Form from './components/form/form'
 import Posts from './components/posts/posts'
 import image from './media/memories.png'
 import useStyles from './styles'
-import QRCode from './components/qrcode/qrcode'
+// import QRCode from './components/qrcode/qrcode'
 
 const App = () => {
   const classes = useStyles()
@@ -39,9 +39,6 @@ const App = () => {
             </Grid>
           </Container>
         </Grow>
-          <Container>
-            <QRCode />
-          </Container>
       </Container>
     </ThemeProvider>
   )
