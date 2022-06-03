@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { Button } from '@mui/material'
+import { Button, Container } from '@mui/material'
 import qrcode from 'qrcode'
 
 const QRCode = () => {
@@ -17,7 +17,7 @@ const QRCode = () => {
   }
 
   return (
-    <div>
+    <Container>
       <h2>QR code generator</h2>
       <input
         type='text'
@@ -27,9 +27,13 @@ const QRCode = () => {
       />
       <Button variant="contained" onClick={getQRCode}>Generate</Button>
       {
-        qr && <img src={qr} alt="qr code generated"/>
+        qr &&
+        <>
+          <img src={qr} alt="qr code generated"/>
+          <Button href={qr} variant="contained" color="success" download="qrcode.png">Download</Button>
+        </>
       }
-    </div>
+    </Container>
   )
 }
 
