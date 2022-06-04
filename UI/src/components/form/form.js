@@ -20,8 +20,12 @@ const Form = () => {
   }
 
   return (
-    <Paper>
-      <form autoComplete='off' noValidate onSubmit={handleSubmit}>
+    <Paper className='paper'>
+      <form autoComplete='off'
+        noValidate
+        onSubmit={handleSubmit}
+        className={classes.form}  
+      >
         <Typography variant='h6'>
           Creating Memory
         </Typography>
