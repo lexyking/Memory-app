@@ -1,7 +1,10 @@
 import { useState } from 'react'
 import { Paper, TextField, Button, Typography } from '@mui/material'
 import FileBAse from 'react-file-base64'
+import { useDispatch } from 'react-redux'
+
 import useStyles from './styles'
+import { createPost } from '../../api'
 
 const Form = () => {
   const [postData, setPostData] = useState({
@@ -12,7 +15,11 @@ const Form = () => {
     selectedFile: ''
   })
   const classes = useStyles()
-  const handleSubmit = () => {
+  const dispatch = useDispatch()
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    dispatch(createPost(postData))
     console.log('submited')
   }
   const clear = () => {
