@@ -20,11 +20,11 @@ const Form = () => {
   }
 
   return (
-    <Paper className='paper'>
+    <Paper className={classes.paper}>
       <form autoComplete='off'
         noValidate
         onSubmit={handleSubmit}
-        className={classes.form}  
+        className={`${classes.root} ${classes.form}`}  
       >
         <Typography variant='h6'>
           Creating Memory
@@ -73,11 +73,11 @@ const Form = () => {
             <FileBAse
               type='file'
               multiple={false}
-              onDone={(base64) => setPostData({ ...postData, selectedFile: base64 })}
+              onDone={({ base64 }) => setPostData({ ...postData, selectedFile: base64 })}
             />
           </div>
-          <Button variant='contained' color='primary' size='large' type='submit' fullWidth>submit</Button>
-          <Button variant='contained' color='secondary' size='large' onClick={clear} fullWidth>Clear</Button>
+          <Button className={classes.buttonSubmit} variant='contained' color='primary' size='large' type='submit' fullWidth>submit</Button>
+          <Button variant='contained' color='secondary' size='small' onClick={clear} fullWidth>Clear</Button>
 
       </form>
 
