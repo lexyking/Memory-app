@@ -4,7 +4,7 @@ import FileBAse from 'react-file-base64'
 import { useDispatch } from 'react-redux'
 
 import useStyles from './styles'
-import { createPost } from '../../api'
+import { createPost } from '../../actions/posts'
 
 const Form = () => {
   const [postData, setPostData] = useState({
@@ -17,10 +17,11 @@ const Form = () => {
   const classes = useStyles()
   const dispatch = useDispatch()
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
-    dispatch(createPost(postData))
-    console.log('submited')
+
+    dispatch(createPost({...postData, tags: [postData.tags]}))
+    console.log('submited', {...postData, tags: [postData.tags]})
   }
   const clear = () => {
     console.log('clear')
