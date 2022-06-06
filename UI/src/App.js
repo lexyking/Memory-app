@@ -7,7 +7,6 @@ import Form from './components/form/form'
 import Posts from './components/posts/posts'
 import image from './media/memories.png'
 import useStyles from './styles'
-// import QRCode from './components/qrcode/qrcode'
 
 const App = () => {
   const classes = useStyles()
@@ -16,7 +15,6 @@ const App = () => {
 
   useEffect(() => {
     dispatch(getPosts())
-    // setPosts(allPosts)
   }, [dispatch])
 
   return (
@@ -28,14 +26,13 @@ const App = () => {
         </AppBar>
         <Grow in>
           <Container>
-            <Grid container justifyContent="space-between" alignItems="stretch">
+            <Grid container justifyContent="space-between" alignItems="stretch" spacing={3}>
               <Grid item xs={12} sm={7}>
                 <Posts />
               </Grid>
               <Grid item xs={12} sm={4}>
                 <Form />
               </Grid>
-
             </Grid>
           </Container>
         </Grow>
