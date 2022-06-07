@@ -37,8 +37,8 @@ const Post = ({ post }) => {
         <Typography variant="body2" color="textSecondary" component="p">{post.message}</Typography>
       </CardContent>
       <CardActions className={classes.cardActions}>
-        <Button size="small" color="primary" onClick={() => {}}><ThumbUpAltIcon fontSize="small" /> Like {post.likeCount} </Button>
-        <Button size="small" color="primary" onClick={() => {}}><DeleteIcon fontSize="small" /> Delete</Button>
+        <Button size="small" color="primary" onClick={() => console.log('clicked')}><ThumbUpAltIcon fontSize="small" /> Like {post.likeCount} </Button>
+        <Button size="small" color="primary" onClick={() => console.log('clicked')}><DeleteIcon fontSize="small" /> Delete</Button>
       </CardActions>
     </Card>
   )
