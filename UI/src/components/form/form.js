@@ -28,6 +28,7 @@ const Form = ({ currentId, setCurrentId }) => {
       : dispatch(createPost({...postData, tags: [postData.tags]}))
     clear()
   }
+  
   const clear = () => {
     setPostData(
       {
