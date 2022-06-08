@@ -5,7 +5,7 @@ import MoreHorizIcon from '@mui/icons-material/MoreHoriz'
 import moment from 'moment'
 import useStyles from './styles'
 
-const Post = ({ post }) => {
+const Post = ({ post, setCurrentId }) => {
   const classes = useStyles()
 
   return (
@@ -25,7 +25,10 @@ const Post = ({ post }) => {
         </Typography>
       </div>
       <div className={classes.overlay2}>
-        <Button style={{color: 'white'}} size='small' onClick={() => {}}>
+        <Button
+          style={{color: 'white'}}
+          size='small'
+          onClick={() => setCurrentId(post._id)}>
           <MoreHorizIcon fontSize='default' />
         </Button>
       </div>
@@ -37,8 +40,8 @@ const Post = ({ post }) => {
         <Typography variant="body2" color="textSecondary" component="p">{post.message}</Typography>
       </CardContent>
       <CardActions className={classes.cardActions}>
-        <Button size="small" color="primary" onClick={() => {}}><ThumbUpAltIcon fontSize="small" /> Like {post.likeCount} </Button>
-        <Button size="small" color="primary" onClick={() => {}}><DeleteIcon fontSize="small" /> Delete</Button>
+        <Button size="small" color="primary" onClick={() => console.log('clicked')}><ThumbUpAltIcon fontSize="small" /> Like {post.likeCount} </Button>
+        <Button size="small" color="primary" onClick={() => console.log('clicked')}><DeleteIcon fontSize="small" /> Delete</Button>
       </CardActions>
     </Card>
   )

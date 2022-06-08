@@ -4,9 +4,9 @@ import FileBAse from 'react-file-base64'
 import { useDispatch } from 'react-redux'
 
 import useStyles from './styles'
-import { createPost } from '../../actions/posts'
+import { createPost, updatePost } from '../../actions/posts'
 
-const Form = () => {
+const Form = ({ currentId, setCurrentId }) => {
   const [postData, setPostData] = useState({
     creator: '',
     title: '',
@@ -19,9 +19,9 @@ const Form = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-
-    dispatch(createPost({...postData, tags: [postData.tags]}))
-    console.log('submited', {...postData, tags: [postData.tags]})
+    currentId ? dispatch(updatePost(currentId, postData))
+      : dispatch(createPost({...postData, tags: [postData.tags]}))
+    // console.log('submited', {...postData, tags: [postData.tags]})
   }
   const clear = () => {
     console.log('clear')
