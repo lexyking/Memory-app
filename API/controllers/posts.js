@@ -26,9 +26,9 @@ export const createPost = async (req, res) => {
 export const updatePost = async (req, res) => {
   const {id} = req.params
   const post = req.body
-  console.log({id}, {post})
-  if(!mongoose.Types.ObjectId.isValid()) res.status(404).send('This post does not exist')
-  await PostMessage.findByIdAndUpdate(id, post, { new: true })
   const updatePost = {...post, _id: id}
+  console.log({id}, {post})
+  if(!mongoose.Types.ObjectId.isValid(id)) res.status(404).json('This post does not exist')
+  await PostMessage.findByIdAndUpdate(id, post, { new: true })
   res.json(updatePost)
 }

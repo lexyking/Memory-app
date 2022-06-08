@@ -16,7 +16,7 @@ const App = () => {
 
   useEffect(() => {
     dispatch(getPosts())
-  }, [dispatch])
+  }, [dispatch, currentId])
 
   return (
     <ThemeProvider theme={theme}>

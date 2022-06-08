@@ -26,7 +26,7 @@ const Form = ({ currentId, setCurrentId }) => {
     e.preventDefault()
     currentId ? dispatch(updatePost(currentId, postData))
       : dispatch(createPost({...postData, tags: [postData.tags]}))
-    // console.log('submited', {...postData, tags: [postData.tags]})
+    clear()
   }
   const clear = () => {
     setPostData(
@@ -38,6 +38,7 @@ const Form = ({ currentId, setCurrentId }) => {
         selectedFile: ''
       }
     )
+    setCurrentId(null)
   }
 
   return (
