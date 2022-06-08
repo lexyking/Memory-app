@@ -13,7 +13,6 @@ const QRCode = () => {
       if (err) console.error(err)
       setQr(url)
     })
-    console.log('get qr code')
   }
 
   return (
