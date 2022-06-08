@@ -29,7 +29,15 @@ const Form = ({ currentId, setCurrentId }) => {
     // console.log('submited', {...postData, tags: [postData.tags]})
   }
   const clear = () => {
-    console.log('clear')
+    setPostData(
+      {
+        creator: '',
+        title: '',
+        message: '',
+        tags: '',
+        selectedFile: ''
+      }
+    )
   }
 
   return (
@@ -40,7 +48,7 @@ const Form = ({ currentId, setCurrentId }) => {
         className={`${classes.root} ${classes.form}`}  
       >
         <Typography variant='h6'>
-          Creating Memory
+          {`${currentId ? 'Editing' : 'Creating'} Memory`}
         </Typography>
         <TextField 
           name='creator'
