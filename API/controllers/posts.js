@@ -12,7 +12,6 @@ export const getPosts = async (req, res) => {
 }
 
 export const createPost = async (req, res) => {
-  console.log('creating the post')
   const post = req.body
   const newPost = new PostMessage(post)
   try {
@@ -27,8 +26,22 @@ export const updatePost = async (req, res) => {
   const {id} = req.params
   const post = req.body
   const updatePost = {...post, _id: id}
-  console.log({id}, {post})
   if(!mongoose.Types.ObjectId.isValid(id)) res.status(404).json('This post does not exist')
   await PostMessage.findByIdAndUpdate(id, post, { new: true })
   res.json(updatePost)
+}
+
+export const deletePost = async (req, res) => {
+  const { id } = req.params
+  if(!mongoose.Types.ObjectId.isValid(id)) res.status(404).json('This post does not exist')
+  await PostMessage.findByIdAndRemove(id)
+  res.json( {message: 'Post deleeted successfully'} )
+}
+
+export const getLikePost = async (req, res) => {
+  const {id} = req.params
+  if(!mongoose.Types.ObjectId.isValid(id)) res.status(404).json('This post does not exist')
+  const post = await PostMessage.findById(id)
+  const updatedPosst = await PostMessage.findByIdAndUpdate(id, {likeCount: post.likeCount + 1}, { new: true })
+  res.json(updatedPosst)
 }
