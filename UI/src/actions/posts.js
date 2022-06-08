@@ -38,3 +38,12 @@ export const deletePost = (id) => async (dispatch) => {
     console.log(error)
   }
 }
+
+export const getLikePost = (id) => async (dispatch) => {
+  try {
+    const {data} = await api.getLikePost(id)
+    dispatch({ type: 'LIKE_POST', payload: data})
+  } catch (error) {
+    console.log(error)
+  }
+}

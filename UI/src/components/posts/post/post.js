@@ -5,7 +5,7 @@ import MoreHorizIcon from '@mui/icons-material/MoreHoriz'
 import moment from 'moment'
 import { useDispatch } from 'react-redux'
 import useStyles from './styles'
-import { deletePost } from '../../../actions/posts'
+import { deletePost, getLikePost } from '../../../actions/posts'
 
 const Post = ({ post, setCurrentId }) => {
   const classes = useStyles()
@@ -36,14 +36,14 @@ const Post = ({ post, setCurrentId }) => {
         </Button>
       </div>
       <div className={classes.details}>
-        <Typography variant="body2" color="textSecondary" component="h2">{post.tags.map((tag) => `#${tag} `)}</Typography>
+        <Typography variant="body2" color="textSecondary" component="h2">{post.tags.map((tag) => ` #${tag}`)}</Typography>
       </div>
       <Typography className={classes.title} gutterBottom variant="h5" component="h2">{post.title}</Typography>
       <CardContent>
         <Typography variant="body2" color="textSecondary" component="p">{post.message}</Typography>
       </CardContent>
       <CardActions className={classes.cardActions}>
-        <Button size="small" color="primary" onClick={() => console.log('clicked')}><ThumbUpAltIcon fontSize="small" /> Like {post.likeCount} </Button>
+        <Button size="small" color="primary" onClick={() => dispatch(getLikePost(post._id))}><ThumbUpAltIcon fontSize="small" /> Like {post.likeCount} </Button>
         <Button size="small" color="primary" onClick={() => dispatch(deletePost(post._id))}><DeleteIcon fontSize="small" /> Delete</Button>
       </CardActions>
     </Card>

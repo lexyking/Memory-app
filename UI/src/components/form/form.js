@@ -52,7 +52,7 @@ const Form = ({ currentId, setCurrentId }) => {
         <Typography variant='h6'>
           {`${currentId ? 'Editing' : 'Creating'} Memory`}
         </Typography>
-        <TextField 
+        <TextField
           name='creator'
           variant='outlined'
           label='Creator'
@@ -89,7 +89,7 @@ const Form = ({ currentId, setCurrentId }) => {
           fullWidth
           value={postData.tags}
           onChange={(e) => {
-            setPostData({ ...postData, tags: e.target.value})
+            setPostData({ ...postData, tags: e.target.value.split(',')})
           }}
           ></TextField>
           <div>
